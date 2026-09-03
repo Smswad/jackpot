@@ -1,7 +1,7 @@
 .scroll-frame-container {
   position: relative;
   width: 100%;
-  background-color: #000000;
+  background-color: #0e0e10;
   box-sizing: border-box;
 }
 
@@ -9,14 +9,14 @@
   position: sticky;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   height: 100dvh;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #000000;
+  background-color: #0e0e10;
 }
 
 .scroll-frame-canvas {
@@ -30,23 +30,23 @@
 .scroll-frame-loader {
   position: fixed;
   inset: 0;
-  background: #000000;
+  background: #0e0e10;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: 9999;
   gap: 1.5rem;
-  color: #ffffff;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #e5e1e4;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
   user-select: none;
 }
 
 .scroll-frame-spinner {
   width: 48px;
   height: 48px;
-  border: 3px solid rgba(255, 255, 255, 0.15);
-  border-top-color: #ff9900;
+  border: 3px solid rgba(255, 179, 176, 0.2);
+  border-top-color: #a81326;
   border-radius: 50%;
   animation: scroll-frame-spin 0.8s linear infinite;
 }
@@ -59,32 +59,34 @@
 }
 
 .scroll-frame-loader-title {
-  font-size: 1.125rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #e5e5e5;
+  color: #ffb3b0;
 }
 
 .scroll-frame-loader-progress {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-variant-numeric: tabular-nums;
-  color: #a3a3a3;
-  letter-spacing: 0.02em;
+  color: #ffb95f;
+  letter-spacing: 0.04em;
+  font-weight: 600;
 }
 
 .scroll-frame-progress-bar-container {
-  width: 200px;
+  width: 220px;
   height: 4px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 2px;
   overflow: hidden;
-  margin-top: 4px;
+  margin-top: 6px;
 }
 
 .scroll-frame-progress-bar {
   height: 100%;
-  background: linear-gradient(90deg, #ff9900, #ffb84d);
+  background: linear-gradient(90deg, #a81326, #ffb95f);
   transition: width 0.15s ease-out;
   border-radius: 2px;
 }
