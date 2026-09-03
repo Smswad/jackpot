@@ -1,6 +1,6 @@
 <div align="center">
 
-  <img src="./public/favicon.jpg" alt="Jackpot Quality Burger Logo" width="96" height="96" style="border-radius: 50%;" />
+  <img src="./public/favicon.png" alt="Jackpot Quality Burger Logo" width="96" height="96" style="border-radius: 50%;" />
 
   # Jackpot — The Foodie Standard
   **Dhaka's #1 Certified 100% Halal Burger Chain Website**
