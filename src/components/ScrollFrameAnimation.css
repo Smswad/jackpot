@@ -1,0 +1,99 @@
+.scroll-frame-container {
+  position: relative;
+  width: 100%;
+  background-color: #000000;
+  box-sizing: border-box;
+}
+
+.scroll-frame-sticky-wrapper {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000;
+}
+
+.scroll-frame-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Loading Overlay */
+.scroll-frame-loader {
+  position: fixed;
+  inset: 0;
+  background: #000000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  gap: 1.5rem;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  user-select: none;
+}
+
+.scroll-frame-spinner {
+  width: 48px;
+  height: 48px;
+  border: 3px solid rgba(255, 255, 255, 0.15);
+  border-top-color: #ff9900;
+  border-radius: 50%;
+  animation: scroll-frame-spin 0.8s linear infinite;
+}
+
+.scroll-frame-loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.scroll-frame-loader-title {
+  font-size: 1.125rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #e5e5e5;
+}
+
+.scroll-frame-loader-progress {
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+  color: #a3a3a3;
+  letter-spacing: 0.02em;
+}
+
+.scroll-frame-progress-bar-container {
+  width: 200px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.scroll-frame-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #ff9900, #ffb84d);
+  transition: width 0.15s ease-out;
+  border-radius: 2px;
+}
+
+@keyframes scroll-frame-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
