@@ -3,13 +3,15 @@ import { burgerFrames } from '../animation/frames';
 import './ScrollFrameAnimation.css';
 
 /**
- * Reusable Scroll-Driven Image Sequence Animation Component
+ * Reusable Scroll-Driven Image Sequence Animation Component with Brand Reveal Overlay
  *
  * @param {Object} props
  * @param {string[]} [props.frames] - Array of image URLs. Defaults to auto-detected burgerFrames.
  * @param {string} [props.scrollLength='400vh'] - Total scrollable height of the sticky section (e.g., '400vh').
  * @param {function} [props.onFrameChange] - Optional callback (frameIndex, progress) on frame updates.
  * @param {string} [props.className=''] - Optional additional container class name.
+ * @param {string} [props.title='JACKPOT'] - Brand title revealed at animation conclusion.
+ * @param {string} [props.tagline='THE FOODIE STANDARD'] - Tagline revealed below title.
  * @param {React.ReactNode} [props.children] - Optional overlay content inside sticky wrapper.
  */
 export default function ScrollFrameAnimation({
@@ -17,10 +19,13 @@ export default function ScrollFrameAnimation({
   scrollLength = '400vh',
   onFrameChange,
   className = '',
+  title = 'JACKPOT',
+  tagline = 'THE FOODIE STANDARD',
   children,
 }) {
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
+  const overlayRef = useRef(null);
   const imagesRef = useRef([]);
   const currentFrameRef = useRef(0);
   const rafIdRef = useRef(null);
@@ -104,6 +109,29 @@ export default function ScrollFrameAnimation({
         onFrameChange(targetFrame, progress);
       }
     }
+
+    // Interpolate brand text overlay animation during the last 20% of scroll
+    if (overlayRef.current) {
+      const startProgress = 0.80; // begins animating in at 80% scroll
+      const endProgress = 0.98;   // fully settled by 98% scroll
+
+      let overlayProgress = 0;
+      if (progress >= startProgress) {
+        overlayProgress = Math.min(
+          Math.max((progress - startProgress) / (endProgress - startProgress), 0),
+          1
+        );
+      }
+
+      // Smooth deceleration curve
+      const eased = overlayProgress * (2 - overlayProgress);
+      const translateY = (1 - eased) * 35; // slide up 35px -> 0px
+      const scale = 0.92 + eased * 0.08;   // scale 0.92 -> 1.0
+
+      overlayRef.current.style.opacity = eased.toFixed(3);
+      overlayRef.current.style.transform = `translate3d(0, ${translateY.toFixed(2)}px, 0) scale(${scale.toFixed(3)})`;
+      overlayRef.current.style.visibility = eased > 0.005 ? 'visible' : 'hidden';
+    }
   }, [onFrameChange, renderFrame]);
 
   // Preload all frames before beginning playback
@@ -155,7 +183,7 @@ export default function ScrollFrameAnimation({
   useEffect(() => {
     if (isLoading) return;
 
-    // Draw initial frame matching current scroll position immediately
+    // Draw initial frame and overlay matching current scroll position immediately
     updateFrameOnScroll();
     renderFrame(currentFrameRef.current);
 
@@ -173,6 +201,7 @@ export default function ScrollFrameAnimation({
       }
       rafIdRef.current = requestAnimationFrame(() => {
         renderFrame(currentFrameRef.current);
+        updateFrameOnScroll();
         rafIdRef.current = null;
       });
     };
@@ -214,6 +243,21 @@ export default function ScrollFrameAnimation({
 
       <div className="scroll-frame-sticky-wrapper">
         <canvas ref={canvasRef} className="scroll-frame-canvas" />
+
+        {/* Animated Brand Reveal Overlay (End of Scroll Sequence) */}
+        <div ref={overlayRef} className="scroll-frame-brand-overlay">
+          <h2 className="scroll-frame-brand-title">{title}</h2>
+          <div className="scroll-frame-brand-badge">
+            <span
+              className="material-symbols-outlined text-secondary text-[16px]"
+              style={{ fontVariationSettings: "'FILL' 1" }}
+            >
+              verified
+            </span>
+            <p className="scroll-frame-brand-tagline">{tagline}</p>
+          </div>
+        </div>
+
         {children}
       </div>
     </div>
