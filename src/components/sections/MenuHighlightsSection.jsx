@@ -34,7 +34,7 @@ export default function MenuHighlightsSection() {
         'Golden ultra-crunched fried chicken patty, melted cheddar, crisp lettuce, and special sauce.',
       img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC2Up3Eihm8NO8EW7LDWIGFcaHUEZrjFJ7zVIDh0ZTHdwZhdG-LzS63sJP3RqSuL8jufyVYNXNhFMB84FeZlNFt5UWunRlkfayT_gTRyH40SPDTz9evE65UdVqJHo6d8amF1nIPooNLxHoSw-2WNdnhHWbJzfHthrk0hQpL8yCsoZOpK_jofwFWj5Js948cSF_1W-1Lv-ost7QGq498rBVGWshmt3AQgqJvY5cuzOZ-QaDK-WiUcJQy7qkIPSjZzFtbUg',
       alt: 'Jackpot Crispy Chicken Burger golden fried fillet',
-      btnClass: 'bg-primary-container hover:bg-tertiary-container text-on-primary',
+      btnClass: 'bg-surface-container-high hover:bg-primary-container text-on-surface hover:text-on-primary',
     },
     {
       id: 'oreo-shake',
@@ -58,7 +58,7 @@ export default function MenuHighlightsSection() {
         '100% prime halal beef smashed patty, special house sauce, fresh lettuce, tomato, and toasted brioche bun.',
       img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuANeXTOoYC1iJbZpxLv4DpsUa86XF09RTLY2QihzAvG7rFJulWyOdAAM2warWukzjopCtLL5hMC-0y4zKW_lutnezUm44Owz2CvEsd79WyGpt5hPbvmQnX9l6N5SYSY9VH5nHD-pVLcXx6v8Q3cRfaetLjGObXLRmdv0QiBwwEPKnoKfMpg-bqg9ddjoWYGvoGXQk9V2JrxFBcDTuW_BmtxmeZBwEIxgXRO88k0DQj18DuQl6b1hH-_UH0a6MIVEIvL-A',
       alt: 'Jackpot Royal Beef Burger',
-      btnClass: 'bg-primary-container hover:bg-tertiary-container text-on-primary',
+      btnClass: 'bg-surface-container-high hover:bg-primary-container text-on-surface hover:text-on-primary',
     },
     {
       id: 'bbq-spicy-wings',
@@ -155,23 +155,23 @@ export default function MenuHighlightsSection() {
 
         {/* Bottom Catalog CTA */}
         <div className="w-full flex justify-center mt-unit-md">
-          <div className="flex flex-col md:flex-row items-center gap-unit-md p-unit-md rounded-xl bg-surface-container border border-surface-container-high">
-            <img
-              alt="Jackpot Official Printed Menu Board"
-              className="h-20 w-32 object-cover rounded-lg shadow-[0_4px_16px_rgba(0,0,0,0.5)]"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9CiuGXNLRSyeEkMUa9BaA6IAK3ydYwJ6ku7alRrQKtgVjfHxx84Sne6Y30xePk0PB534X0jQLoRwHo-Wl47nZfUP_0l_q9eS8pYh9icYcQrJsFQ9r_GosCvLu2nOHcfAF4j0iyt5Qi7cR4z1dor8116-hI4d8QgpuFFUfjN5Atm2jPdxrluWa2JhZdLp4yJSOaHGqIV1fbOnG_7pj5bne7hQcIbxktPF_4zn0bxqsza3Fs9YWgv7kC86AnmLpGUfhLQ"
-            />
-            <div className="flex flex-col text-center md:text-left">
-              <span className="font-headline-sm text-headline-sm uppercase text-on-surface">
-                Explore Full Official Menu
-              </span>
-              <span className="font-body-sm text-body-sm text-on-surface-variant">
-                Over 30+ items including Naga Drums, Garlic Mushroom, Shakes &amp; Sides
-              </span>
+          <div className="w-full max-w-4xl flex flex-col md:flex-row items-center justify-between gap-unit-md p-unit-md rounded-xl bg-surface-container border border-surface-container-high">
+            <div className="flex items-center gap-unit-md text-center md:text-left">
+              <div className="w-12 h-12 rounded-xl bg-primary-container/20 flex items-center justify-center shrink-0 text-primary">
+                <span className="material-symbols-outlined text-[28px]">menu_book</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="font-headline-sm text-headline-sm uppercase text-on-surface">
+                  Explore Full Official Menu
+                </span>
+                <span className="font-body-sm text-body-sm text-on-surface-variant">
+                  Over 30+ items including Naga Drums, Garlic Mushroom, Shakes &amp; Sides
+                </span>
+              </div>
             </div>
             <a
-              className="px-unit-lg py-unit-sm bg-primary-container hover:bg-tertiary-container text-on-primary font-label-lg text-label-lg uppercase tracking-wider rounded-lg transition-colors flex items-center gap-unit-xs"
-              href="https://www.foodpanda.com.bd"
+              className="px-unit-lg py-unit-sm bg-primary-container hover:bg-tertiary-container text-on-primary font-label-lg text-label-lg uppercase tracking-wider rounded-lg transition-colors flex items-center gap-unit-xs whitespace-nowrap"
+              href="/Restaurant_menu.jpeg"
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -179,6 +179,32 @@ export default function MenuHighlightsSection() {
                 lunch_dining
               </span>
               <span>View Full Menu &amp; Add-ons</span>
+            </a>
+          </div>
+        </div>
+
+        {/* Full Official Restaurant Menu Board */}
+        <div className="w-full flex flex-col items-center mt-unit-md">
+          <div className="relative w-full max-w-4xl rounded-2xl overflow-hidden bg-surface-container border border-surface-container-high shadow-[0_16px_40px_rgba(0,0,0,0.6)] group">
+            <a
+              href="/Restaurant_menu.jpeg"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block relative cursor-zoom-in"
+              title="Click to view full-resolution menu"
+            >
+              <img
+                alt="Jackpot Authentic Restaurant Menu"
+                className="w-full h-auto object-contain rounded-2xl transition-transform duration-300 group-hover:scale-[1.01]"
+                src="/Restaurant_menu.jpeg"
+                loading="lazy"
+              />
+              <div className="absolute bottom-unit-sm right-unit-sm px-3 py-1.5 rounded-lg bg-surface-dim/90 backdrop-blur-md text-on-surface font-label-sm text-xs flex items-center gap-1.5 border border-white/10 shadow-lg">
+                <span className="material-symbols-outlined text-[16px] text-secondary">
+                  zoom_in
+                </span>
+                <span>Click to view full size</span>
+              </div>
             </a>
           </div>
         </div>
